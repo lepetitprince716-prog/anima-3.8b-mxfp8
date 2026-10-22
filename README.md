@@ -23,7 +23,7 @@ converted to 8-bit.
 
 Non-commercial license. Not an official CircleStone Labs or lylogummy release.
 
-**Download:** Hugging Face (link pending) and Civitai (link pending). The GitHub repository holds
+**Download:** [Hugging Face](https://huggingface.co/kefallrain/Anima-3.8B-v1.1-MXFP8) and [Civitai](https://civitai.com/models/3015129/anima-38b-v11-mxfp8). The GitHub repository holds
 the documentation, workflow, patch and bake script only, because GitHub caps release files at 2 GB.
 
 ![Samples](samples/01-library.jpg)
