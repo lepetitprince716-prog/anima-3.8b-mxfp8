@@ -1,0 +1,794 @@
+{
+  "id": "a66f5d91-9bb8-49f4-8994-aa1810148d4e",
+  "revision": 0,
+  "last_node_id": 25,
+  "last_link_id": 35,
+  "nodes": [
+    {
+      "id": 4,
+      "type": "CLIPLoader",
+      "pos": [
+        85494.12548094567,
+        25695.809563457322
+      ],
+      "size": [
+        300,
+        170
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            3,
+            5
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.56",
+        "Node name for S&R": "CLIPLoader",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [
+        "qwen_3_06b_base.safetensors",
+        "stable_diffusion",
+        "default"
+      ]
+    },
+    {
+      "id": 5,
+      "type": "AnimaQwen35Loader",
+      "pos": [
+        85496.11935955517,
+        25906.102928013093
+      ],
+      "size": [
+        273.273046875,
+        58
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            4,
+            6
+          ]
+        }
+      ],
+      "properties": {
+        "aux_id": "GumGum10/comfyui-anima-3-8B",
+        "ver": "381c13af328b958febf86c155d2f4b007cd0f55b",
+        "Node name for S&R": "AnimaQwen35Loader"
+      },
+      "widgets_values": [
+        "qwen35_4b.safetensors"
+      ]
+    },
+    {
+      "id": 8,
+      "type": "KSamplerSelect",
+      "pos": [
+        87128.46367220738,
+        26119.517622434003
+      ],
+      "size": [
+        300,
+        70
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "SAMPLER",
+          "type": "SAMPLER",
+          "links": [
+            11
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.34",
+        "Node name for S&R": "KSamplerSelect",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [
+        "res_multistep"
+      ]
+    },
+    {
+      "id": 9,
+      "type": "BasicScheduler",
+      "pos": [
+        87105.32317633957,
+        26220.344068714996
+      ],
+      "size": [
+        300,
+        110
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 35
+        }
+      ],
+      "outputs": [
+        {
+          "name": "SIGMAS",
+          "type": "SIGMAS",
+          "links": [
+            12
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.34",
+        "Node name for S&R": "BasicScheduler",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [
+        "beta",
+        28,
+        1
+      ]
+    },
+    {
+      "id": 10,
+      "type": "VAELoader",
+      "pos": [
+        87128.46367220738,
+        26359.517622434003
+      ],
+      "size": [
+        300,
+        70
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            15
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.34",
+        "Node name for S&R": "VAELoader",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [
+        "qwen_image_vae.safetensors"
+      ]
+    },
+    {
+      "id": 13,
+      "type": "CFGGuider",
+      "pos": [
+        87578.67954989531,
+        25753.182335819685
+      ],
+      "size": [
+        300,
+        120
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 34
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 19
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 20
+        }
+      ],
+      "outputs": [
+        {
+          "name": "GUIDER",
+          "type": "GUIDER",
+          "links": [
+            10
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.34",
+        "Node name for S&R": "CFGGuider",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [
+        7.0
+      ]
+    },
+    {
+      "id": 15,
+      "type": "VAEDecode",
+      "pos": [
+        88460.55982461589,
+        26131.59271316217
+      ],
+      "size": [
+        140,
+        46
+      ],
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 14
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 15
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            17
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.32.0",
+        "Node name for S&R": "VAEDecode"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 2,
+      "type": "Anima38BV2Prompt",
+      "pos": [
+        86233.68683420827,
+        25463.640932968487
+      ],
+      "size": [
+        400,
+        200
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 33
+        },
+        {
+          "name": "native_clip",
+          "type": "CLIP",
+          "link": 3
+        },
+        {
+          "name": "qwen35_clip",
+          "type": "CLIP",
+          "link": 4
+        },
+        {
+          "name": "prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "prompt"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "expanded",
+          "type": "CONDITIONING",
+          "links": [
+            19
+          ]
+        },
+        {
+          "name": "native",
+          "type": "CONDITIONING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "aux_id": "GumGum10/comfyui-anima-3-8B",
+        "ver": "381c13af328b958febf86c155d2f4b007cd0f55b",
+        "Node name for S&R": "Anima38BV2Prompt"
+      },
+      "widgets_values": [
+        "safe, newest, year 2025, 1girl, solo, fox ears, long hair, orange hair, sweater, holding book, bookshelf, library, sunlight, looking at viewer\nDescription:\nA fox-eared girl stands by a tall bookshelf in an old library, holding an open book. Warm afternoon light falls through the tall windows behind her."
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 3,
+      "type": "Anima38BV2Prompt",
+      "pos": [
+        86240.48126015713,
+        25782.487406610424
+      ],
+      "size": [
+        400,
+        200
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 2
+        },
+        {
+          "name": "native_clip",
+          "type": "CLIP",
+          "link": 5
+        },
+        {
+          "name": "qwen35_clip",
+          "type": "CLIP",
+          "link": 6
+        },
+        {
+          "name": "prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "prompt"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "expanded",
+          "type": "CONDITIONING",
+          "links": [
+            20
+          ]
+        },
+        {
+          "name": "native",
+          "type": "CONDITIONING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "aux_id": "GumGum10/comfyui-anima-3-8B",
+        "ver": "381c13af328b958febf86c155d2f4b007cd0f55b",
+        "Node name for S&R": "Anima38BV2Prompt"
+      },
+      "widgets_values": [
+        "worst quality, low quality, bad hands, extra digits, missing fingers, jpeg artifacts, watermark, signature, text, nsfw"
+      ],
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 14,
+      "type": "SamplerCustomAdvanced",
+      "pos": [
+        88125.16367220736,
+        25905.11762243401
+      ],
+      "size": [
+        248.8541015625,
+        370
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "noise",
+          "type": "NOISE",
+          "link": 9
+        },
+        {
+          "name": "guider",
+          "type": "GUIDER",
+          "link": 10
+        },
+        {
+          "name": "sampler",
+          "type": "SAMPLER",
+          "link": 11
+        },
+        {
+          "name": "sigmas",
+          "type": "SIGMAS",
+          "link": 12
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 13
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output",
+          "type": "LATENT",
+          "links": []
+        },
+        {
+          "name": "denoised_output",
+          "type": "LATENT",
+          "links": [
+            14
+          ]
+        }
+      ],
+      "title": "1st Pass",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.34",
+        "Node name for S&R": "SamplerCustomAdvanced",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [],
+      "color": "#009933"
+    },
+    {
+      "id": 12,
+      "type": "RandomNoise",
+      "pos": [
+        87428.46367220738,
+        25919.517622434003
+      ],
+      "size": [
+        300,
+        420
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 5,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "NOISE",
+          "type": "NOISE",
+          "links": [
+            9
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.34",
+        "Node name for S&R": "RandomNoise",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [
+        42,
+        "fixed"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 1,
+      "type": "Anima38BV2Loader",
+      "pos": [
+        85365.18240759392,
+        25493.847658650993
+      ],
+      "size": [
+        270,
+        58
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            2,
+            33,
+            34,
+            35
+          ]
+        }
+      ],
+      "properties": {
+        "aux_id": "GumGum10/comfyui-anima-3-8B",
+        "ver": "381c13af328b958febf86c155d2f4b007cd0f55b",
+        "Node name for S&R": "Anima38BV2Loader"
+      },
+      "widgets_values": [
+        "Anima-3.8B-v1.1-mxfp8.safetensors"
+      ]
+    },
+    {
+      "id": 11,
+      "type": "EmptySD3LatentImage",
+      "pos": [
+        87428.46367220738,
+        26369.517622434003
+      ],
+      "size": [
+        300,
+        110
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            13
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.56",
+        "Node name for S&R": "EmptySD3LatentImage",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [
+        832,
+        1216,
+        1
+      ]
+    },
+    {
+      "id": 17,
+      "type": "SaveImage",
+      "pos": [
+        88796.89866045727,
+        26391.169229758027
+      ],
+      "size": [
+        564.3191026503191,
+        880.5583561563872
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 16,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 17
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.29",
+        "Node name for S&R": "SaveImage",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [
+        "anima-3.8b-v1.1-mxfp8"
+      ]
+    }
+  ],
+  "links": [
+    [
+      2,
+      1,
+      0,
+      3,
+      0,
+      "MODEL"
+    ],
+    [
+      3,
+      4,
+      0,
+      2,
+      1,
+      "CLIP"
+    ],
+    [
+      4,
+      5,
+      0,
+      2,
+      2,
+      "CLIP"
+    ],
+    [
+      5,
+      4,
+      0,
+      3,
+      1,
+      "CLIP"
+    ],
+    [
+      6,
+      5,
+      0,
+      3,
+      2,
+      "CLIP"
+    ],
+    [
+      9,
+      12,
+      0,
+      14,
+      0,
+      "NOISE"
+    ],
+    [
+      10,
+      13,
+      0,
+      14,
+      1,
+      "GUIDER"
+    ],
+    [
+      11,
+      8,
+      0,
+      14,
+      2,
+      "SAMPLER"
+    ],
+    [
+      12,
+      9,
+      0,
+      14,
+      3,
+      "SIGMAS"
+    ],
+    [
+      13,
+      11,
+      0,
+      14,
+      4,
+      "LATENT"
+    ],
+    [
+      14,
+      14,
+      1,
+      15,
+      0,
+      "LATENT"
+    ],
+    [
+      15,
+      10,
+      0,
+      15,
+      1,
+      "VAE"
+    ],
+    [
+      17,
+      15,
+      0,
+      17,
+      0,
+      "IMAGE"
+    ],
+    [
+      19,
+      2,
+      0,
+      13,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      20,
+      3,
+      0,
+      13,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      33,
+      1,
+      0,
+      2,
+      0,
+      "MODEL"
+    ],
+    [
+      34,
+      1,
+      0,
+      13,
+      0,
+      "MODEL"
+    ],
+    [
+      35,
+      1,
+      0,
+      9,
+      0,
+      "MODEL"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.9384254425560038,
+      "offset": [
+        -85160.01209091512,
+        -25210.47375892906
+      ]
+    },
+    "frontendVersion": "1.48.7"
+  },
+  "version": 0.4
+}

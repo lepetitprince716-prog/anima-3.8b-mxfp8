@@ -1,0 +1,24 @@
+Anima 3.8B MXFP8
+
+Attribution Notice (CircleStone Labs Non-Commercial License v1.2, section 3(b)):
+
+"The CircleStone Model is licensed by CircleStone Labs LLC under the CircleStone Non-Commercial License. Copyright CircleStone Labs LLC.
+IN NO EVENT SHALL CIRCLESTONE LABS LLC BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH USE OF THIS MODEL."
+
+Modification statement (section 3(d)(i)): this checkpoint is a modified version of the
+CircleStone Model. It is a quantized copy of lylogummy/Anima-3.8B, a 52-block expansion of
+Anima 2.9B, which is in turn a Derivative of CircleStone Labs' Anima. The weights of the
+self-attention, cross-attention and MLP projections in the 52 DiT blocks were converted to
+MXFP8. Every other tensor is unchanged.
+
+This release is not an official CircleStone Labs product and is not endorsed, approved or
+validated by CircleStone Labs LLC.
+
+Rights to use the CircleStone Model and this Derivative are granted directly by CircleStone
+Labs LLC to each recipient under the CircleStone Labs Non-Commercial License v1.2, included as
+LICENSE-MODEL.md. The model may be used for non-commercial purposes only. It is provided as
+is, without warranty of any kind; see sections 5 and 6 of that license.
+
+Anima is a Derivative Model of NVIDIA Cosmos-Predict2-2B-Text2Image and is subject to the
+NVIDIA Open Model License Agreement insofar as it applies to Derivative Models.
+Built on NVIDIA Cosmos.

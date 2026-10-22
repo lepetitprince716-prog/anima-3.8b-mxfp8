@@ -1,0 +1,2 @@
+# Unified diffs keep a single space on blank context lines; that is not a whitespace error.
+*.diff -whitespace
